@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "install": "^0.13.0",
+    "knex": "^0.95.11",
+    "mysql": "^2.18.1",
+    "nestify": "^1.0.7",
+    "restify-errors": "^8.0.2"
+  }
+}

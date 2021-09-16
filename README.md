@@ -12,3 +12,6 @@ Eu criei um mock para fins de testes caso eu precise, mas vou criar o Banco de d
 https://mockapi.io/projects/614225344d16670017ba2c3a
 
 
+- No Node.js
+ - Instalei o nodemon
+ - Instalei o 
