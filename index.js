@@ -14,7 +14,7 @@ const knex = require('knex')({
   client: 'mysql',
   connection: {
     host : '127.0.0.1',
-    port : 3306,
+    //port : 3306,
     user : 'root',
     password : '',
     database : 'gupy'
@@ -36,11 +36,9 @@ server.listen(8080, function () {
 server.get('/', function (req, res, next) {
 
   knex('rest').then((dados)=>{//ENVIAR DADOS
-    res.send((dados));
+    res.send(dados);
   },next);
 
-  res.send(req.params);
-  return next();
 });
 
 server.post('/create', function (req, res, next) {
@@ -48,9 +46,46 @@ server.post('/create', function (req, res, next) {
   knex('rest')
     .insert(req.body)
     .then((dados)=>{//ENVIAR DADOS
-      res.send((dados));
+      res.send(dados);
     },next);
   
-  res.send(req.params);
-  return next();
+});
+
+server.get('/show/:id', function (req, res, next) {
+  const { id } = req.param;
+
+  knex('rest')
+   .where('id',id)
+   .first()
+   .then((dados)=>{
+      if(!dados) return res.send(new errs.BadRequestError('Nada foi encontrado')) 
+      res.send(dados);
+    },next);
+});
+
+
+server.put('/update/:id', function (req, res, next) {
+  const { id } = req.param;
+
+  knex('rest')
+   .where('id',id)
+   .update(req.body)
+   .then((dados)=>{
+    if(!dados) return res.send(new errs.BadRequestError('Nada foi encontrado')) 
+    res.send('dados atualizados');
+  },next);
+});
+
+
+
+server.put('/delete/:id', function (req, res, next) {
+  const {id}= req.param;
+
+  knex('rest')
+   .where('id',id)
+   .delete()
+   .then((dados)=>{
+    if(!dados) return res.send(new errs.BadRequestError('Nada foi encontrado')) 
+    res.send('dados deletados');
+  },next);
 });
