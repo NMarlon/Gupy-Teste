@@ -51,41 +51,49 @@ server.post('/create', function (req, res, next) {
   
 });
 
-server.get('/show/:id', function (req, res, next) {
-  const { id } = req.param;
+server.get('/show/:id', (req, res, next) => {
+    
+  const { id } = req.params;
+  void async function() {
+      var isso = await knex('rest')
+          .where('testeid', id)
+          .first()
+          .then((dados) => {
+              if(!dados) return res.send(new errs.BadRequestError('nada foi encontrado'))
+              res.send(dados);
+          }, next)
+      console.log('isso');
+   
+      console.log(prom);
+  }
+});
 
-  knex('rest')
-   .where('id',id)
-   .first()
-   .then((dados)=>{
-      if(!dados) return res.send(new errs.BadRequestError('Nada foi encontrado')) 
-      res.send(dados);
-    },next);
+server.put('/update/:id', (req, res, next) => {
+    
+    const { id } = req.params;
+
+    knex('rest')
+        .where('id', id)
+        .update(req.body)
+        .then((dados) => {
+            if(!dados) return res.send(new errs.BadRequestError('nada foi encontrado'))
+            res.send('dados atualizados');
+        }, next)
+        
+});
+ 
+server.del('/delete/:id', (req, res, next) => {
+    
+    const { id } = req.params;
+
+    knex('rest')
+        .where('id', id)
+        .delete()
+        .then((dados) => {
+            if(!dados) return res.send(new errs.BadRequestError('nada foi encontrado'))
+            res.send('dados excluidos');
+        }, next)
+        
 });
 
 
-server.put('/update/:id', function (req, res, next) {
-  const { id } = req.param;
-
-  knex('rest')
-   .where('id',id)
-   .update(req.body)
-   .then((dados)=>{
-    if(!dados) return res.send(new errs.BadRequestError('Nada foi encontrado')) 
-    res.send('dados atualizados');
-  },next);
-});
-
-
-
-server.put('/delete/:id', function (req, res, next) {
-  const {id}= req.param;
-
-  knex('rest')
-   .where('id',id)
-   .delete()
-   .then((dados)=>{
-    if(!dados) return res.send(new errs.BadRequestError('Nada foi encontrado')) 
-    res.send('dados deletados');
-  },next);
-});
