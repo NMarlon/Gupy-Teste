@@ -39,7 +39,7 @@ server.get('/', function (req, res, next) {
     res.send(dados);
   },next);
 
-});
+}); 
 
 server.post('/create', function (req, res, next) {
 
@@ -51,22 +51,40 @@ server.post('/create', function (req, res, next) {
   
 });
 
+
+
 server.get('/show/:id', (req, res, next) => {
     
   const { id } = req.params;
-  void async function() {
-      var isso = await knex('rest')
-          .where('testeid', id)
-          .first()
-          .then((dados) => {
-              if(!dados) return res.send(new errs.BadRequestError('nada foi encontrado'))
-              res.send(dados);
-          }, next)
-      console.log('isso');
+    var isso =  knex('rest')
+              .where('testeid', id)
+              .first()
+              .then((dados) => {
+                  if(!dados) return res.send(new errs.BadRequestError('nada foi encontrado'))
+                  res.send(dados);
+                  console.log("DADOS: "+ JSON.stringify(dados));
+                  return dados;
+              }, next)
+    
+
    
-      console.log(prom);
-  }
+   
+  // isso.then(total => {
+  //   console.log('isso');
+  //   console.log(total)
+  // })
 });
+
+// isso.then(function(result) {
+//    console.log("result"+result) // "Some User token"
+// })
+
+
+
+// void async function(){
+//       var total = await isso();
+//       console.log(total);
+// }
 
 server.put('/update/:id', (req, res, next) => {
     
