@@ -1,10 +1,37 @@
 {
+  "name": "gupy",
+  "version": "1.0.0",
+  "description": "Olá pretendo fazer o Back e o que conseguir ter tempo pra fazer do front-end onde:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./index.js"
+  },
+  "author": "Marlon Rebello Viana",
+  "license": "ISC",
   "dependencies": {
-    "install": "^0.13.0",
-    "knex": "^0.95.11",
-    "mysql": "^2.18.1",
-    "nestify": "^1.0.7",
-    "restify": "^8.5.1",
-    "restify-errors": "^8.0.2"
-  }
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lowdb": "^3.0.0",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.25",
+    "random-id": "^1.0.4",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6",
+    "yarn": "^1.22.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NMarlon/Gupy-Teste.git"
+  },
+  "keywords": [
+    "gupy"
+  ],
+  "bugs": {
+    "url": "https://github.com/NMarlon/Gupy-Teste/issues"
+  },
+  "homepage": "https://github.com/NMarlon/Gupy-Teste#readme"
 }
