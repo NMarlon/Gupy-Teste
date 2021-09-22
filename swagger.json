@@ -2,15 +2,15 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is a simple example NodeJS API project to demonstrate Swagger Documentation",
+        "description": "Aqui é um exemplo da aplicação prática do Swagger funcionando corretamente",
         "version": "1.0.0",
-        "title": "Tasks API",
+        "title": "Gupy-API",
         "contact": {
-            "email": "abc@gmail.com"
+            "email": "marlonrviana@gmail.com"
         },
         "license": {
             "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+            "url": "http://www.apache.org/license/LICENSE-2.0.html"
         }
     },
     "schemes": ["http"],
@@ -19,13 +19,13 @@
     "paths" : {
         "/todos" : {
             "get" : {
-                "summary" : "Get all the tasks",
-                "description": "Get all the tasks",
+                "summary" : "Busca todas as tarefas",
+                "description": "Pega todas as tarefas na tabela",
                 "produces": ["application/json"],
                 "parameters": [],
                 "responses": {
                     "200": {
-                        "description": "successful operation",
+                        "description": "Operação de sucesso",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -44,8 +44,8 @@
         },
         "/todo" : {
             "post" : {
-                "summary" : "Save the task",
-                "description": "Save the task",
+                "summary" : "Salva o dado",
+                "description": "Salva o dado",
                 "produces": ["application/json"],
                 "consumes": ["application/json"],
                 "parameters": [
@@ -67,7 +67,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation",
+                        "description": "sucesso na operação",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -86,7 +86,7 @@
         },
         "/todos/{id}" : {
             "put" : {
-                "summary" : "Update the tasks",
+                "summary" : "Modifica o dado",
                 "description": "Update the tasks",
                 "produces": ["application/json"],
                 "parameters": [
@@ -115,7 +115,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation",
+                        "description": "sucesso na operação",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -134,7 +134,7 @@
         },
         "/todo/{id}" : {
             "delete" : {
-                "summary" : "Delete the task",
+                "summary" : "Deleta o dado",
                 "description": "Delete the task",
                 "produces": ["application/json"],
                 "parameters": [
@@ -148,7 +148,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation",
+                        "description": "sucesso na operação",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -167,48 +167,55 @@
         }
     }, 
     "definitions": {
-        "todosResponse": {
+        "TiposDeProfissional": {
             "type": "object",
             "properties": {
                 "id": {
-                     "type": "integer"
+                     "type": "Primary Key (INT)"
                 },
-                "task": {
+                "descricao": {
                     "type": "string"
                 },
-                "assignee": {
-                    "type": "string"
+                "sitaucao": {
+                    "type": "boolean"
                 },
-                "status": {
-                    "type": "string"
+                "updatedAt": {
+                    "type": "datetime"
+                },
+                "createdAt": {
+                    "type": "datetime"
                 }
+                
             }
         },
-        "Task": {
+        "Profissional": {
             "type": "object",
             "properties": {
-                "task": {
+                "id": {
+                    "type": "Primary Key (INT)"
+                },
+                "nome": {
                     "type": "string"
                 },
-                "assignee": {
+                "telefone": {
                     "type": "string"
                 },
-                "status": {
+                "email": {
                     "type": "string"
+                }, 
+                "TiposDeProfissional": {
+                    "type": "Chave Estrangeira"
+                },
+                "situacao": {
+                    "type": "boolean"
+                },
+                "updatedAt": {
+                    "type": "datetime"
+                },
+                "createdAt": {
+                    "type": "datetime"
                 }
             }
-        },
-        "InvalidResponse": {
-            "type": "object",
-            "properties": {
-                "statusCode": {
-                    "type": "string"
-                },
-                "message": {
-                    "type": "string"
-                }
-            }
-
         }
     }
 }
