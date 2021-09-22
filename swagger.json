@@ -2,7 +2,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Aqui é um exemplo da aplicação prática do Swagger funcionando corretamente",
+        "description": "Aqui é um exemplo da aplicação prática do Swagger funcionando",
         "version": "1.0.0",
         "title": "Gupy-API",
         "contact": {
@@ -23,7 +23,7 @@
                 "description": "Pega todas as tarefas na tabela",
                 "produces": ["application/json"],
                 "parameters": [],
-                "responses": {
+                "responses": { 
                     "200": {
                         "description": "Operação de sucesso",
                         "schema": {

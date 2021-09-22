@@ -119,25 +119,3 @@ server.del('/delete/:id', (req, res, next) => {
         
 });
 
-
-
-//Aqui algumas configurações 
-/*
-
-swagger.json   OLD
-
-{
-  "openapi": "3.0.0",
-  "info": {
-      "title": "Funcionarios Gupy",
-      "description": "Aqui você poderá gerenciar o cadastro dos funcionários Gupy",
-      "version": "1.0",
-      "contact":{
-        "email":"marlonrviana@gmail.com"
-      },
-      "version":"1.0.0"
-  },
-
-
-  "servers":""
-}
