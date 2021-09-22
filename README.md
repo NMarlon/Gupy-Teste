@@ -15,12 +15,8 @@ https://mockapi.io/projects/614225344d16670017ba2c3a
 - No Node.js
     - Instalei o nodemon (NodeJS API para enviar as requisições pro DB no MySQL)
     - Configurei alguns comandos básicos como:
-        - localhost:8080/ : Mostra TODOS os dados de uma tabela
-        - localhost:8080/show/id : seleciona um dado pelo id
-        - localhost:8080/update : atualiza os dados
-        - localhost:8080/create : insere dados
-        - localhost:8080/delete/id : deleta o dado pelo id
-
+       - localhost:8080/ : Mostra TODOS os dados de uma tabela
+      
 - Instalados/Usados:
     - NodeJS
     - Postman (para enviar requisições REST)
@@ -35,4 +31,10 @@ Passos:
 
 - Instalado NodeJS (versão 16.9.1 Windows)
     - !Eu instalei a versão 14.17.6 e deu erro! 
-- 
+- Instalado Postman
+- Instalado XAMMP
+- Habilitar XAMMP MySQL e Apache
+- Os módulos do NodeJS são baixados pelo Yarn
+-
+
+
